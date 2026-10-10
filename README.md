@@ -11,9 +11,9 @@
 
 ---
 
-## 🌐 Live Website & Demo
-
-- **Live URL:** [https://shriji-resort-website.vercel.app](https://shriji-resort-website.vercel.app) *(or your deployed Vercel domain)*
+- **GitHub Repository:** [https://github.com/Sakshitiwari-24/shriji-resort-website](https://github.com/Sakshitiwari-24/shriji-resort-website)
+- **1-Click Vercel Deploy:** [Deploy to Vercel (1-Click)](https://vercel.com/new/import?s=https://github.com/Sakshitiwari-24/shriji-resort-website)
+- **Live Domain:** [https://shriji-resort-website.vercel.app](https://shriji-resort-website.vercel.app)
 - **Local Dev Server:** `http://localhost:3000`
 
 ---
