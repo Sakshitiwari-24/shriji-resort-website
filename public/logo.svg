@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <circle cx="50" cy="50" r="46" fill="#081c15" stroke="#d4af37" stroke-width="3"/>
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#f4c430" stroke-width="1" stroke-dasharray="3,3"/>
+  <path d="M50 15 L53 25 L63 25 L55 31 L58 41 L50 35 L42 41 L45 31 L37 25 L47 25 Z" fill="#f4c430"/>
+  <text x="50" y="62" font-family="'Cinzel', serif" font-size="22" font-weight="bold" fill="#f4c430" text-anchor="middle">S</text>
+  <text x="50" y="78" font-family="'Cinzel', serif" font-size="9" letter-spacing="2" fill="#e2c044" text-anchor="middle">SHRIJI</text>
+</svg>
