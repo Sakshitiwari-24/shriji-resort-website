@@ -136,3 +136,109 @@ export const faqs = [
     a: "Absolutely! We offer 100% customizable pure vegetarian multi-cuisine catering menus and custom decor themes."
   }
 ];
+
+export const eventCategories = [
+  {
+    id: "weddings",
+    title: "Wedding Parties & Receptions",
+    subtitle: "Grand Barat, Sacred Phere & Regal Feasts",
+    category: "weddings",
+    tag: "Royal Wedding Experience",
+    capacity: "500 – 2,000 Guests",
+    venue: "Royal Marriage Lawn + AC Banquet Hall",
+    image: "/gallery/mandap.jpg",
+    description: "Sprawling 35,000 sq ft illuminated open lawn featuring grand Barat welcome walkway, custom floral mandap stage, VIP sofa lounges, and gourmet banquet feast.",
+    highlights: [
+      "Grand Barat Welcome Pathway & Stage",
+      "Central Mandap with Custom Royal Drapery",
+      "Pure Vegetarian Gourmet Multi-Cuisine Feast",
+      "25+ AC Luxury Guest Suites On-Site"
+    ]
+  },
+  {
+    id: "engagements",
+    title: "Engagements & Ring Ceremonies",
+    subtitle: "Auspicious Sagar & Ring Exchange",
+    category: "engagements",
+    tag: "Romantic Milestone",
+    capacity: "200 – 600 Guests",
+    venue: "Imperial AC Banquet Hall & VIP Lounge",
+    image: "/gallery/banquet.jpg",
+    description: "Opulent climate-controlled celebration featuring romantic floral backdrops, crystal chandelier ambience, plush sofa seating for elders, and decadent appetizers.",
+    highlights: [
+      "Custom Themed Ring Exchange Stage",
+      "Central AC with Premium Acoustic Panels",
+      "Plush Royal Sofa Seating for Elders & VIPs",
+      "Welcome Mocktails & Multi-Course Dining"
+    ]
+  },
+  {
+    id: "birthdays",
+    title: "Birthday Parties & Celebrations",
+    subtitle: "1st to 50th Milestones & Kids Themes",
+    category: "birthdays",
+    tag: "High Energy & Fun",
+    capacity: "100 – 500 Guests",
+    venue: "Crystal Poolside Deck & Night Canopies",
+    image: "/gallery/poolside.jpg",
+    description: "High-energy celebration with vibrant theme decor, poolside breeze, live music DJ floor, interactive kids entertainment, and customized party catering.",
+    highlights: [
+      "Custom Themed Backdrop & Balloon Arches",
+      "Live DJ Floor with Dynamic Party Lighting",
+      "Live Chaat, Pizza & Mocktail Counters",
+      "Crystal Swimming Pool Deck Ambience"
+    ]
+  },
+  {
+    id: "retirement",
+    title: "Retirement Parties & Corporate Meets",
+    subtitle: "Honoring Decades of Dedication",
+    category: "retirement",
+    tag: "Dignified & Memorable",
+    capacity: "100 – 450 Guests",
+    venue: "Imperial AC Banquet & VIP Dining Lounge",
+    image: "/gallery/vip_lounge_hall.jpg",
+    description: "A warm, dignified gathering to felicitate retirement and corporate milestones. Featuring AV presentation facilities, keynote stage, and fine family dining.",
+    highlights: [
+      "Felicitation Stage with Podium & AV Mic Setup",
+      "Comfortable Sofa & Round Table Dining Setup",
+      "Traditional Multi-Course Vegetarian Dinner",
+      "Dedicated Photography & Memento Corner"
+    ]
+  },
+  {
+    id: "mundan",
+    title: "Mundan Sanskar & Sacred Pooja",
+    subtitle: "Holy Childhood Vedic Rites & Rituals",
+    category: "mundan",
+    tag: "Auspicious & Sacred",
+    capacity: "150 – 500 Guests",
+    venue: "Crystal Poolside & Green Garden Lawn",
+    image: "/gallery/sunset_mandap.jpg",
+    description: "Traditional Vedic havan arrangements and auspicious ceremony setups surrounded by peaceful greenery, followed by satvik traditional feast and family rest suites.",
+    highlights: [
+      "Sacred Havan Kund & Pooja Stage Setup",
+      "100% Satvik, Jain & Traditional Pure Veg Meals",
+      "Morning & Afternoon Auspicious Muhurat Support",
+      "AC Guest Rooms for Family Rest & Changing"
+    ]
+  },
+  {
+    id: "anniversaries",
+    title: "Anniversaries & Sangeet Nights",
+    subtitle: "Silver/Golden Jubilees & Musical Sundowners",
+    category: "anniversaries",
+    tag: "Joyous Memories",
+    capacity: "200 – 800 Guests",
+    venue: "Night Canopy Garden Lawn & Pool Deck",
+    image: "/gallery/lawn_night_tents.jpg",
+    description: "Atmospheric evening under festive canopy tents with ambient fairy lights, nostalgic memory reels, live musical performances, and late-night celebrations.",
+    highlights: [
+      "Illuminated Night Canopy Tents & Cabanas",
+      "Spacious Wooden Dance & Sangeet Stage",
+      "Nostalgic Photo Memory Gallery Wall",
+      "Late-Night Dessert & Traditional Chai Stalls"
+    ]
+  }
+];
+

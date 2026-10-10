@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import IntroSection from './components/IntroSection';
 import SpacesSection from './components/SpacesSection';
+import EventsSection from './components/EventsSection';
 import MomentsGallerySection from './components/MomentsGallerySection';
 import ExperienceSection from './components/ExperienceSection';
 import QuoteBandSection from './components/QuoteBandSection';
@@ -56,19 +57,22 @@ export default function App() {
         {/* Section 3: Spaces */}
         <SpacesSection onOpenBooking={handleOpenBooking} />
 
-        {/* Section 4: Moments Gallery */}
+        {/* Section 4: Events & Celebrations */}
+        <EventsSection onOpenBooking={handleOpenBooking} />
+
+        {/* Section 5: Moments Gallery */}
         <MomentsGallerySection />
 
-        {/* Section 5: Experience Timeline */}
+        {/* Section 6: Experience Timeline */}
         <ExperienceSection />
 
-        {/* Section 6: Quote Band */}
+        {/* Section 7: Quote Band */}
         <QuoteBandSection />
 
-        {/* Section 7: Booking & Enquiry */}
-        <BookingEnquirySection />
+        {/* Section 8: Booking & Enquiry */}
+        <BookingEnquirySection initialData={bookingInitialData} />
 
-        {/* Section 8: Contact & Location */}
+        {/* Section 9: Contact & Location */}
         <ContactLocationSection />
       </main>
 

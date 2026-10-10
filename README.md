@@ -52,7 +52,17 @@ Built with an artisanal **Baghel Haveli & Golden Hour** royal aesthetic, the web
 - **Mobile:** Accordion with touch-friendly expandable cards.
 - Covers the **Royal Marriage Lawn**, **Imperial AC Banquet & VIP Lounge**, **Crystal Poolside & Haldi Deck**, and **Night Canopy Garden Lawn**.
 
-### 5. 📸 Celebration Moments Gallery (`MomentsGallerySection.jsx`)
+### 5. 🎊 Curated Celebrations & Event Orders (`EventsSection.jsx`)
+- Dedicated showcase of all private and grand event types hosted at Shriji Resort with category filter pills:
+  - **Wedding Parties & Receptions:** Grand Barat pathway, illuminated central mandap, 2,000 guest capacity, 25+ AC suites.
+  - **Engagements & Ring Ceremonies:** Custom floral exchange stage, central AC hall, plush royal elder seating, gourmet welcome drinks.
+  - **Birthday Parties & Milestones:** Theme backdrops, live DJ party lighting, poolside breeze, live chaat & mocktail counters.
+  - **Retirement Parties & Corporate Meets:** Felicitation stage with AV podium, dignified round-table dining, photography memento corner.
+  - **Mundan Sanskar & Sacred Pooja:** Auspicious Vedic havan setup, 100% satvik pure veg feasts, morning muhurat support, family suites.
+  - **Anniversaries & Sangeet Nights:** Illuminated night canopy tents, spacious wooden dance floor, memory gallery wall.
+- Each event card features direct "Book Event" and "WhatsApp" buttons prefilled with the event title.
+
+### 6. 📸 Celebration Moments Gallery (`MomentsGallerySection.jsx`)
 - Filter tabs for: *All Moments*, *Mandap & Lawn*, *Banquet & Dining*, *Pool & Resort*, and *Suites & Rooms*.
 - Gold-framed royal image cards with subtle hover elevations.
 - Interactive modal lightbox with keyboard navigation (`Esc`, `←`, `→`).

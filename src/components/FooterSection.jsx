@@ -31,6 +31,7 @@ export default function FooterSection() {
         <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center', fontSize: '0.875rem' }}>
           <a href="#intro" style={{ color: '#F3E9DC', textDecoration: 'none' }}>Story</a>
           <a href="#spaces" style={{ color: '#F3E9DC', textDecoration: 'none' }}>Spaces</a>
+          <a href="#events" style={{ color: '#F3E9DC', textDecoration: 'none' }}>Events</a>
           <a href="#moments" style={{ color: '#F3E9DC', textDecoration: 'none' }}>Moments</a>
           <a href="#journey" style={{ color: '#F3E9DC', textDecoration: 'none' }}>Journey</a>
           <a href="#booking" style={{ color: '#F3E9DC', textDecoration: 'none' }}>Book Date</a>

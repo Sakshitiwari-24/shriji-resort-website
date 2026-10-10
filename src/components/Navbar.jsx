@@ -10,6 +10,7 @@ import {
   Calendar, 
   Menu, 
   X, 
+  PartyPopper,
   ChevronRight 
 } from 'lucide-react';
 import { resortDetails } from '../data/resortData';
@@ -24,7 +25,7 @@ export default function Navbar({ onOpenBooking }) {
       setScrolled(window.scrollY > 50);
 
       // Simple active link detection
-      const sections = ['intro', 'spaces', 'moments', 'journey', 'contact'];
+      const sections = ['intro', 'spaces', 'events', 'moments', 'journey', 'contact'];
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -43,6 +44,7 @@ export default function Navbar({ onOpenBooking }) {
   const navLinks = [
     { name: 'Story', href: '#intro', id: 'intro', icon: Compass, subtitle: 'Heritage & Vision' },
     { name: 'Spaces', href: '#spaces', id: 'spaces', icon: Building2, subtitle: 'Royal Lawn & Banquet' },
+    { name: 'Events', href: '#events', id: 'events', icon: PartyPopper, subtitle: 'Weddings & Celebrations' },
     { name: 'Moments', href: '#moments', id: 'moments', icon: Camera, subtitle: 'Celebration Gallery' },
     { name: 'Journey', href: '#journey', id: 'journey', icon: Sparkles, subtitle: 'Wedding Timeline' },
     { name: 'Contact', href: '#contact', id: 'contact', icon: MapPin, subtitle: 'Location & Directions' },

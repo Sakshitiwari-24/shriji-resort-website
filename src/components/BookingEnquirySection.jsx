@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, MessageCircle, Calendar, Send, CheckCircle, Eye, EyeOff } from 'lucide-react';
 import { resortDetails } from '../data/resortData';
 
-export default function BookingEnquirySection() {
+export default function BookingEnquirySection({ initialData }) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    eventType: 'Grand Wedding & Reception',
+    eventType: initialData?.eventType || 'Grand Wedding & Reception',
     date: '',
     guestCount: '600 - 1200 Guests',
     message: ''
@@ -15,6 +15,12 @@ export default function BookingEnquirySection() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [revealedPhones, setRevealedPhones] = useState({});
+
+  useEffect(() => {
+    if (initialData?.eventType) {
+      setFormData(prev => ({ ...prev, eventType: initialData.eventType }));
+    }
+  }, [initialData]);
 
   const directWhatsAppUrl = `https://wa.me/${resortDetails.whatsapp}?text=${encodeURIComponent('Hello Shriji Resort, I would like to enquire about venue booking dates and package pricing.')}`;
 
@@ -238,9 +244,16 @@ export default function BookingEnquirySection() {
                     </label>
                     <select value={formData.eventType} onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}>
                       <option value="Grand Wedding & Reception">Grand Wedding & Reception</option>
+                      <option value="Wedding Parties & Receptions">Wedding Parties & Receptions</option>
+                      <option value="Engagements & Ring Ceremonies">Engagements & Ring Ceremonies</option>
+                      <option value="Birthday Parties & Celebrations">Birthday Parties & Celebrations</option>
+                      <option value="Retirement Parties & Corporate Meets">Retirement Parties & Corporate Meets</option>
+                      <option value="Mundan Sanskar & Sacred Pooja">Mundan Sanskar & Sacred Pooja</option>
+                      <option value="Anniversaries & Sangeet Nights">Anniversaries & Sangeet Nights</option>
                       <option value="Sangeet / Haldi / Mehendi">Sangeet / Haldi / Mehendi</option>
                       <option value="Intimate Engagement">Intimate Engagement</option>
                       <option value="Resort Suite Stay">Resort Suite Stay</option>
+                      <option value="Custom Ceremony / Function">Custom Ceremony / Function</option>
                     </select>
                   </div>
 
