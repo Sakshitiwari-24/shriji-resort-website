@@ -4,6 +4,7 @@ export default function QuoteBandSection() {
   return (
     <section
       id="quote-band"
+      className="quote-band-section"
       style={{
         width: '100%',
         padding: '110px 24px',
@@ -54,7 +55,7 @@ export default function QuoteBandSection() {
             margin: '0 0 24px 0'
           }}
         >
-          “Two souls, one sacred bond — celebrated amidst royal greenery, starlit skies, and handcrafted warmth.”
+          “Celebrate life’s happiest moments with your family in a spacious, welcoming, and beautiful setting.”
         </blockquote>
 
         <p

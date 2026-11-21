@@ -4,30 +4,30 @@ export default function ExperienceSection() {
   const weddingJourney = [
     {
       step: '01',
-      title: 'Grand Barat Arrival & Welcome Pathway',
+      title: 'Grand Barat Welcome & Easy Parking',
       time: 'Evening',
-      desc: 'The celebration begins at the grand welcome arch and Barat arrival pathway. Ample secured parking for 200+ vehicles ensures effortless arrival for all guests.',
+      desc: 'Welcome the Barat at our brightly lit entrance gate. Safe parking for 200+ vehicles makes arrival smooth and easy for all guests.',
       image: '/gallery/hero.jpg'
     },
     {
       step: '02',
-      title: 'Sacred Phere & Sunset Mandap',
-      time: 'Twilight',
-      desc: 'Set upon the 35,000 sq ft manicured lawn under open skies. Vibrant drapery decks the central mandap stage as family gathers for sacred vows.',
+      title: 'Mandap Ceremony on the Open Lawn',
+      time: 'Evening',
+      desc: 'Celebrate the main ceremony on our 35,000 sq ft open green lawn with a decorated mandap stage and plenty of seating for family and friends.',
       image: '/gallery/sunset_mandap.jpg'
     },
     {
       step: '03',
-      title: 'Imperial Banquet & VIP Lounge Feast',
+      title: 'AC Banquet Hall & Pure Veg Dinner',
       time: 'Night',
-      desc: 'Transition into the 10,000 sq ft air-conditioned banquet hall. Complete with plush royal sofa seating, acoustic panels, and multi-cuisine gourmet catering.',
+      desc: 'Enjoy dinner in our 10,000 sq ft AC banquet hall with comfortable sofa seating, warm lighting, and freshly prepared pure vegetarian food.',
       image: '/gallery/banquet.jpg'
     },
     {
       step: '04',
-      title: 'Poolside Sundowner & Luxury Suites',
-      time: 'Post Event',
-      desc: 'Unwind by the crystal blue swimming pool deck. Guest lodging in 25+ air-conditioned luxury rooms equipped with modern baths and 24/7 room service.',
+      title: 'Poolside Area & AC Guest Rooms',
+      time: 'Stay',
+      desc: 'Relax by our clean swimming pool and rest comfortably in 25+ AC guest rooms with attached bathrooms and 24/7 room service.',
       image: '/gallery/poolside_haldi.jpg'
     }
   ];
@@ -35,7 +35,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="journey"
-      className="paper-texture"
+      className="paper-texture responsive-section"
       style={{
         padding: '120px 24px',
         background: 'var(--warm-sand-light)',
@@ -48,12 +48,12 @@ export default function ExperienceSection() {
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '70px' }}>
           <span className="tag-label" style={{ marginBottom: '8px', display: 'block' }}>
-            Celebration Path
+            How Your Day Flows
           </span>
           <h2 className="h2-editorial font-display" style={{ color: 'var(--deep-aubergine)' }}>
-            The Wedding Day <br />
+            Your Wedding Day <br />
             <span className="font-display" style={{ fontStyle: 'italic', color: 'var(--terracotta)' }}>
-              Journey
+              at Shriji Resort
             </span>
           </h2>
         </div>
@@ -92,7 +92,7 @@ export default function ExperienceSection() {
                 {/* Content Card (Half Width) */}
                 <div style={{ flex: '1' }}>
                   <div
-                    className="warm-paper-card journey-card"
+                    className="warm-paper-card journey-card responsive-card"
                     style={{
                       padding: '32px',
                       background: '#FFFFFF',

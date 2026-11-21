@@ -5,7 +5,7 @@ export default function IntroSection() {
   return (
     <section
       id="intro"
-      className="paper-texture"
+      className="paper-texture responsive-section"
       style={{
         padding: '120px 24px',
         background: 'var(--warm-sand)',
@@ -17,9 +17,10 @@ export default function IntroSection() {
         
         {/* Editorial Story Layout with Framed Haveli Arch Portrait */}
         <div
+          className="intro-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             gap: '64px',
             alignItems: 'center'
           }}
@@ -27,7 +28,7 @@ export default function IntroSection() {
           {/* Left: Elegantly Framed Haveli Arch Portrait (No messy Instagram overlapping circle collage!) */}
           <div style={{ position: 'relative' }}>
             
-            <div className="arch-mask-framed" style={{ width: '100%', height: '520px' }}>
+            <div className="arch-mask-framed intro-arch-wrap">
               <img
                 src="/gallery/mandap.jpg"
                 alt="Shriji Resort Royal Marriage Lawn Mandap"
@@ -61,13 +62,13 @@ export default function IntroSection() {
           {/* Right: Narrative Details & Warm Paper Highlight Card */}
           <div>
             <span className="tag-label" style={{ marginBottom: '12px', display: 'block' }}>
-              The Story of Shriji
+              About Shriji Resort
             </span>
 
             <h2 className="h2-editorial font-display" style={{ color: 'var(--deep-aubergine)', marginBottom: '24px' }}>
-              Where Heritage Warmth Meets <br />
+              Warm Hospitality &amp; <br />
               <span className="font-display" style={{ fontStyle: 'italic', color: 'var(--terracotta)' }}>
-                Handcrafted Grandeur
+                Spacious Venues
               </span>
             </h2>
 
@@ -87,17 +88,17 @@ export default function IntroSection() {
                 35,000
               </span>
               <span className="font-body" style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--terracotta)' }}>
-                Square Feet Manicured Garden Lawn
+                Square Feet Open Green Lawn
               </span>
             </div>
 
             <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '20px' }}>
-              Situated on Shiv Nagar Road near Makhan Lal Chaturvedi University on Allahabad Road, Rewa, 
-              <strong> Shriji Resorts & Marriage Garden</strong> offers an authentic haven for traditional destination weddings.
+              Located on Shiv Nagar Road near Makhan Lal Chaturvedi University, Allahabad Road, Rewa,
+              <strong> Shriji Resorts &amp; Marriage Garden</strong> is a comfortable and spacious venue for weddings and family functions.
             </p>
 
             <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '32px' }}>
-              With an open-air marriage lawn hosting up to 2,000 guests, a 10,000 sq ft AC banquet hall, crystal swimming pool, and 25+ air-conditioned luxury rooms, every celebration feels personal, serene, and unforgettable.
+              With an open lawn for up to 2,000 guests, a 10,000 sq ft AC banquet hall, swimming pool, and 25+ AC rooms, we make hosting your special day simple and stress-free.
             </p>
 
             {/* Solid Warm Surface Highlight Card */}

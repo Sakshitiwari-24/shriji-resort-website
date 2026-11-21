@@ -5,11 +5,11 @@ export default function Preloader() {
   const [fade, setFade] = useState(false);
 
   useEffect(() => {
-    // Short preloader under 1.2 s, text-only
+    // Fast preloader (500ms) for snappy Core Web Vitals / LCP
     const timer = setTimeout(() => {
       setFade(true);
-      setTimeout(() => setLoading(false), 400);
-    }, 1100);
+      setTimeout(() => setLoading(false), 250);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -53,7 +53,7 @@ export default function Preloader() {
             style={{ height: '65px', width: 'auto', objectFit: 'contain' }}
           />
         </div>
-        <h1
+        <div
           className="font-display"
           style={{
             fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
@@ -64,7 +64,7 @@ export default function Preloader() {
           }}
         >
           Shriji Resort
-        </h1>
+        </div>
         <p
           className="font-body"
           style={{

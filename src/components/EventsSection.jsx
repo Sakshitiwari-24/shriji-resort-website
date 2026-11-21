@@ -54,7 +54,7 @@ export default function EventsSection({ onOpenBooking }) {
   return (
     <section
       id="events"
-      className="paper-texture"
+      className="paper-texture responsive-section"
       style={{
         padding: '120px 24px',
         background: 'var(--warm-sand-light)',
@@ -76,12 +76,12 @@ export default function EventsSection({ onOpenBooking }) {
             }}
           >
             <Sparkles size={14} style={{ color: 'var(--terracotta)' }} />
-            Celebrations & Event Orders
+            Events We Host
           </span>
           <h2 className="h2-editorial font-display" style={{ color: 'var(--deep-aubergine)' }}>
-            Every Milestone Deserves A <br />
+            The Right Place for <br />
             <span className="font-display" style={{ fontStyle: 'italic', color: 'var(--terracotta)' }}>
-              Royal Setting
+              Every Celebration
             </span>
           </h2>
           <p 
@@ -93,7 +93,7 @@ export default function EventsSection({ onOpenBooking }) {
               lineHeight: 1.6
             }}
           >
-            From grand 2,000-guest marriage parties and sacred Vedic sanskars to festive birthdays and dignified retirement farewells — explore our specialized event hosting services in Rewa.
+            From big weddings and family pooja ceremonies to birthday parties and retirement farewells — we host all kinds of events in Rewa.
           </p>
         </div>
 
@@ -143,7 +143,7 @@ export default function EventsSection({ onOpenBooking }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))',
             gap: '32px',
             marginBottom: '64px'
           }}
@@ -340,7 +340,7 @@ export default function EventsSection({ onOpenBooking }) {
                   </div>
 
                   {/* Action Buttons */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '10px', paddingTop: '16px', borderTop: '1px solid var(--border-sand)' }}>
+                  <div className="event-card-actions" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '10px', paddingTop: '16px', borderTop: '1px solid var(--border-sand)' }}>
                     <button
                       onClick={() => handleBookEvent(event)}
                       className="minimal-submit-btn"
@@ -398,7 +398,7 @@ export default function EventsSection({ onOpenBooking }) {
 
         {/* Bottom Bespoke Consultation Banner */}
         <div
-          className="warm-paper-card"
+          className="warm-paper-card responsive-card"
           style={{
             padding: '36px 32px',
             background: 'var(--deep-aubergine)',
@@ -422,7 +422,7 @@ export default function EventsSection({ onOpenBooking }) {
                 display: 'block' 
               }}
             >
-              Custom Ceremonies & Family Gatherings
+              Other Family Functions
             </span>
             <h3 
               className="font-display" 
@@ -433,10 +433,10 @@ export default function EventsSection({ onOpenBooking }) {
                 marginBottom: '8px' 
               }}
             >
-              Have a Unique Function or Private Ceremony in Mind?
+              Planning a Different Function or Ceremony?
             </h3>
             <p style={{ fontSize: '0.9rem', color: '#D9A5A0', lineHeight: 1.6 }}>
-              Whether it is a sacred Janeu Sanskar, Godh Bharai, Mata Ki Chowki, family re-union, or academic felicitation — our venue coordinators tailor the lawn, indoor hall, and pure vegetarian feast to your family customs.
+              Whether it is a Janeu Sanskar, Godh Bharai, Mata Ki Chowki, family get-together, or school/office event — our team will arrange the lawn, indoor hall, and pure veg food just the way you need.
             </p>
           </div>
 
@@ -446,7 +446,7 @@ export default function EventsSection({ onOpenBooking }) {
               className="btn-book"
               style={{ padding: '12px 22px', fontSize: '0.825rem' }}
             >
-              <span>Enquire Custom Date</span>
+              <span>Check Date Availability</span>
             </button>
 
             <a

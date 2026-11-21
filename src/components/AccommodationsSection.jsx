@@ -1,64 +1,101 @@
 import React from 'react';
 import { accommodations } from '../data/resortData';
-import { Bed, Wifi, Tv, Coffee, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Bed, Sparkles, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
 
-export default function AccommodationsSection({ onOpenBooking, lang }) {
+export default function AccommodationsSection({ onOpenBooking }) {
   return (
-    <section id="rooms" style={{ padding: '100px 20px', background: 'var(--bg-primary)' }}>
+    <section
+      id="rooms"
+      className="paper-texture responsive-section"
+      style={{
+        padding: '120px 24px',
+        background: 'var(--warm-sand)',
+        position: 'relative'
+      }}
+    >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         
-        {/* Section Title */}
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <span className="glass-pill" style={{ marginBottom: '12px' }}>
-            <Bed size={14} />
-            {lang === 'hi' ? 'लग्जरी स्टे व रूम्स' : 'Luxury Rooms & Heritage Suites'}
+        {/* Section Header */}
+        <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <span className="tag-label" style={{ marginBottom: '8px', display: 'block' }}>
+            Guest Stay
           </span>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, marginTop: '8px' }} className="font-cinzel">
-            {lang === 'hi' ? 'अतिथियों के ठहरने की उत्तम व्यवस्था' : 'Relaxed Stay for Wedding Guests'}
+          <h2 className="h2-editorial font-display" style={{ color: 'var(--deep-aubergine)' }}>
+            Comfortable AC Rooms &amp; <br />
+            <span className="font-display" style={{ fontStyle: 'italic', color: 'var(--terracotta)' }}>
+              Family Suites
+            </span>
           </h2>
-          <p style={{ color: 'var(--text-muted)', maxWidth: '650px', margin: '12px auto 0 auto', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            {lang === 'hi' 
-              ? '25+ वातानुकूलित (AC) सुसज्जित रूम्स, 24/7 रूम सर्विस व लॉन-पूल व्यू सुइट्स।' 
-              : '25+ fully air-conditioned rooms & presidential suites with 24/7 room service, private balconies & resort views.'}
+          <p
+            style={{
+              maxWidth: '650px',
+              margin: '16px auto 0 auto',
+              fontSize: '1.05rem',
+              color: 'var(--text-muted)',
+              lineHeight: 1.6
+            }}
+          >
+            25+ clean AC rooms and bridal suites right inside the resort, with comfortable beds, attached modern bathrooms, and 24/7 room service for your wedding guests.
           </p>
         </div>
 
         {/* Accommodations Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '30px' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: '32px'
+          }}
+        >
           {accommodations.map((room) => (
             <div 
               key={room.id}
-              className="glass-panel"
+              className="warm-paper-card"
               style={{
+                background: '#FFFFFF',
+                borderRadius: 'var(--radius-lg)',
+                border: '1.5px solid var(--border-sand)',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
-                position: 'relative'
+                position: 'relative',
+                boxShadow: '0 16px 40px rgba(43, 22, 32, 0.08)'
               }}
             >
               {room.popular && (
-                <div style={{
-                  position: 'absolute',
-                  top: '16px',
-                  right: '16px',
-                  background: 'var(--gold-secondary)',
-                  color: '#ffffff',
-                  fontWeight: 700,
-                  fontFamily: 'var(--font-accent)',
-                  letterSpacing: '0.08em',
-                  fontSize: '0.75rem',
-                  padding: '5px 14px',
-                  borderRadius: 'var(--radius-full)',
-                  zIndex: 2,
-                  boxShadow: '0 4px 12px rgba(184, 134, 11, 0.4)'
-                }}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '18px',
+                    right: '18px',
+                    background: 'linear-gradient(135deg, #B5523B 0%, #E8A33D 100%)',
+                    color: '#FFFFFF',
+                    fontWeight: 700,
+                    fontSize: '0.72rem',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    padding: '6px 14px',
+                    borderRadius: 'var(--radius-pill)',
+                    zIndex: 3,
+                    boxShadow: '0 4px 14px rgba(181, 82, 59, 0.4)'
+                  }}
+                >
                   Bride & Groom Suite
                 </div>
               )}
 
-              {/* Room Image with Golden Designer Border */}
-              <div style={{ padding: '6px 6px 0 6px' }}>
-                <div style={{ height: '240px', overflow: 'hidden', position: 'relative', borderRadius: '12px', border: '2px solid rgba(232, 163, 61, 0.6)', boxShadow: '0 8px 25px rgba(0,0,0,0.15)' }}>
+              {/* Room Image with Framed Golden Trim */}
+              <div style={{ padding: '12px 12px 0 12px' }}>
+                <div
+                  style={{
+                    height: '240px',
+                    overflow: 'hidden',
+                    position: 'relative',
+                    borderRadius: 'var(--radius-md)',
+                    border: '2px solid rgba(232, 163, 61, 0.6)',
+                    boxShadow: '0 8px 25px rgba(0,0,0,0.1)'
+                  }}
+                >
                   <img 
                     src={room.image} 
                     alt={room.name} 
@@ -68,33 +105,54 @@ export default function AccommodationsSection({ onOpenBooking, lang }) {
                       objectFit: 'cover',
                       transition: 'transform 0.5s ease'
                     }}
+                    loading="lazy"
                   />
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '12px',
-                    left: '12px',
-                    background: 'rgba(43, 22, 32, 0.92)',
-                    border: '1px solid #E8A33D',
-                    padding: '4px 12px',
-                    borderRadius: '12px',
-                    fontSize: '0.8rem',
-                    color: '#F3E9DC',
-                    fontWeight: 600
-                  }}>
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: '12px',
+                      left: '12px',
+                      background: 'rgba(43, 22, 32, 0.92)',
+                      border: '1px solid #E8A33D',
+                      padding: '4px 12px',
+                      borderRadius: 'var(--radius-pill)',
+                      fontSize: '0.78rem',
+                      color: '#F3E9DC',
+                      fontWeight: 600,
+                      backdropFilter: 'blur(6px)'
+                    }}
+                  >
                     {room.view} • {room.size}
                   </div>
                 </div>
               </div>
 
               {/* Card Body */}
-              <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '8px' }} className="font-cinzel text-gold-bright">
+              <div style={{ padding: '24px 28px 28px 28px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                <h3
+                  className="font-display"
+                  style={{
+                    fontSize: '1.45rem',
+                    fontWeight: 700,
+                    color: 'var(--deep-aubergine)',
+                    marginBottom: '8px'
+                  }}
+                >
                   {room.name}
                 </h3>
 
-                <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Bed size={16} color="var(--gold-secondary)" />
-                  {room.bed}
+                <div
+                  style={{
+                    color: 'var(--text-muted)',
+                    fontSize: '0.9rem',
+                    marginBottom: '16px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}
+                >
+                  <Bed size={16} style={{ color: 'var(--terracotta)' }} />
+                  <span>{room.bed}</span>
                 </div>
 
                 {/* Amenities Badges */}
@@ -103,35 +161,46 @@ export default function AccommodationsSection({ onOpenBooking, lang }) {
                     <span 
                       key={idx} 
                       style={{
-                        background: '#f8fafc',
-                        border: '1px solid rgba(197, 155, 39, 0.25)',
-                        borderRadius: '6px',
+                        background: 'var(--warm-sand-light)',
+                        border: '1px solid var(--border-sand)',
+                        borderRadius: 'var(--radius-pill)',
                         padding: '4px 10px',
-                        fontSize: '0.78rem',
-                        color: '#334155',
-                        fontWeight: 500
+                        fontSize: '0.75rem',
+                        color: 'var(--text-dark)',
+                        fontWeight: 600,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px'
                       }}
                     >
+                      <CheckCircle2 size={12} style={{ color: 'var(--saffron)' }} />
                       {amenity}
                     </span>
                   ))}
                 </div>
 
-                {/* Price & CTA */}
-                <div style={{ marginTop: 'auto', borderTop: '1px solid rgba(197, 155, 39, 0.2)', paddingTop: '18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <div>
-                    <span style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--gold-secondary)', fontFamily: 'var(--font-cinzel)' }}>
-                      ₹{room.price.toLocaleString('en-IN')}
-                    </span>
-                    <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}> /{room.per}</span>
-                  </div>
+                {/* CTA */}
+                <div
+                  style={{
+                    marginTop: 'auto',
+                    borderTop: '1px solid rgba(181, 82, 59, 0.15)',
+                    paddingTop: '20px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: '12px'
+                  }}
+                >
+                  <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+                    On-Site AC Stay
+                  </span>
 
                   <button 
-                    onClick={() => onOpenBooking({ room: room.name })}
-                    className="btn-gold"
-                    style={{ padding: '8px 16px', fontSize: '0.78rem' }}
+                    onClick={() => onOpenBooking && onOpenBooking({ eventType: `Room Booking: ${room.name}` })}
+                    className="btn-book"
+                    style={{ padding: '10px 18px', fontSize: '0.78rem' }}
                   >
-                    Reserve Room
+                    <span>Reserve Suite</span>
                   </button>
                 </div>
 

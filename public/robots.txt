@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shrijiresortrewa.com/sitemap.xml
+

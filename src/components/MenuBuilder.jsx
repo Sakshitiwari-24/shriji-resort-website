@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Utensils, Sparkles, Check, ChefHat, Heart, Download } from 'lucide-react';
-import { cateringPackages } from '../data/resortData';
+import { ChefHat, Check, MessageCircle, Sparkles, Utensils } from 'lucide-react';
+import { cateringPackages, resortDetails } from '../data/resortData';
 
-export default function MenuBuilder({ lang }) {
-  const [selectedPackage, setSelectedPackage] = useState(cateringPackages[0]);
+export default function MenuBuilder({ onOpenBooking }) {
+  const [selectedPackage, setSelectedPackage] = useState(cateringPackages[1] || cateringPackages[0]);
   const [selectedDishes, setSelectedDishes] = useState([
-    "Welcome Drink: Royal Kesar Pista Milk",
-    "Paneer Tikka",
-    "Shahi Paneer",
-    "Dal Makhani",
-    "Warm Gulab Jamun with Rabri",
-    "Live Pani Puri Counter"
+    "Royal Kesar Pista Milk",
+    "Paneer Tikka Angara",
+    "Shahi Paneer Pasanda",
+    "Dal Makhani Dum Pukht",
+    "Live Street Food Chaat Counter",
+    "Moong Dal Halwa with Rabri"
   ]);
 
   const toggleDish = (dish) => {
@@ -21,66 +21,118 @@ export default function MenuBuilder({ lang }) {
     }
   };
 
+  const handleRequestMenu = () => {
+    const text = `Hello Shriji Resort! I would like to request catering details for the ${selectedPackage.name} package.\n` +
+      `Special choices: ${selectedDishes.join(', ')}.\n` +
+      `Please share menu tasting and catering availability details.`;
+    window.open(`https://wa.me/${resortDetails.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+  };
+
   return (
-    <section id="catering" style={{ padding: '100px 20px', background: 'var(--bg-secondary)' }}>
+    <section
+      id="catering"
+      className="paper-texture"
+      style={{
+        padding: '120px 24px',
+        background: 'var(--warm-sand-light)',
+        position: 'relative'
+      }}
+    >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         
-        {/* Title */}
-        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <span className="glass-pill" style={{ marginBottom: '12px' }}>
-            <ChefHat size={14} />
-            {lang === 'hi' ? 'शाही व्यन्जन व केटरिंग' : 'Royal Culinary & Gourmet Feast'}
+        {/* Section Header */}
+        <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <span className="tag-label" style={{ marginBottom: '8px', display: 'block' }}>
+            Pure Veg Catering
           </span>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, marginTop: '8px' }} className="font-cinzel">
-            {lang === 'hi' ? 'शुद्ध शाकाहारी शाही पकवान' : 'Custom Gourmet Catering Menu'}
+          <h2 className="h2-editorial font-display" style={{ color: 'var(--deep-aubergine)' }}>
+            Tasty Pure Veg Food &amp; <br />
+            <span className="font-display" style={{ fontStyle: 'italic', color: 'var(--terracotta)' }}>
+              Wedding Menus
+            </span>
           </h2>
-          <p style={{ color: 'var(--text-muted)', maxWidth: '650px', margin: '12px auto 0 auto', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            {lang === 'hi' 
-              ? 'अनुभवी शेफ द्वारा तैयार उत्तर भारतीय, राजस्थानी, साउथ इंडियन व लाइव चाट काउंटर।' 
-              : 'Handcrafted pure vegetarian delicacies, live food stalls, mocktail lounges & traditional sweet counters.'}
+          <p
+            style={{
+              maxWidth: '650px',
+              margin: '16px auto 0 auto',
+              fontSize: '1.05rem',
+              color: 'var(--text-muted)',
+              lineHeight: 1.6
+            }}
+          >
+            Freshly cooked pure vegetarian food prepared by experienced chefs. Choose from North Indian meals, live chaat stalls, mocktails, and traditional Indian sweets.
           </p>
         </div>
 
         {/* Package Selector Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', marginBottom: '50px' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '28px',
+            marginBottom: '48px'
+          }}
+        >
           {cateringPackages.map((pkg) => {
             const isSelected = selectedPackage.id === pkg.id;
             return (
               <div 
                 key={pkg.id}
                 onClick={() => setSelectedPackage(pkg)}
-                className="glass-panel"
+                className="warm-paper-card"
                 style={{
                   padding: '32px',
                   cursor: 'pointer',
-                  border: isSelected ? '2px solid var(--gold-secondary)' : '1px solid var(--border-gold)',
-                  background: isSelected ? '#0f2d21' : '#ffffff',
+                  border: isSelected ? '2px solid var(--terracotta)' : '1.5px solid var(--border-sand)',
+                  background: isSelected ? 'var(--deep-aubergine)' : '#FFFFFF',
+                  color: isSelected ? '#F3E9DC' : 'var(--deep-aubergine)',
                   position: 'relative',
                   overflow: 'hidden',
-                  boxShadow: isSelected ? '0 12px 30px rgba(15, 45, 33, 0.25)' : 'var(--shadow-card)'
+                  borderRadius: 'var(--radius-lg)',
+                  boxShadow: isSelected ? '0 16px 40px rgba(43, 22, 32, 0.25)' : '0 10px 30px rgba(43, 22, 32, 0.05)',
+                  transition: 'all 0.3s ease'
                 }}
               >
                 {isSelected && (
-                  <div style={{ position: 'absolute', top: '16px', right: '16px', background: 'var(--gold-secondary)', color: '#ffffff', padding: '4px 12px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 700, fontFamily: 'var(--font-accent)', letterSpacing: '0.08em' }}>
-                    Selected
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '16px',
+                      right: '16px',
+                      background: 'var(--saffron)',
+                      color: 'var(--deep-aubergine)',
+                      padding: '4px 12px',
+                      borderRadius: 'var(--radius-pill)',
+                      fontSize: '0.72rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase'
+                    }}
+                  >
+                    Active Tier
                   </div>
                 )}
                 
-                <h3 style={{ fontSize: '1.6rem', fontWeight: 700, marginBottom: '6px' }} className={isSelected ? "font-cinzel text-gold-metallic" : "font-cinzel text-gold-bright"}>
+                <h3
+                  className="font-display"
+                  style={{
+                    fontSize: '1.55rem',
+                    fontWeight: 700,
+                    marginBottom: '6px',
+                    color: isSelected ? 'var(--saffron)' : 'var(--deep-aubergine)'
+                  }}
+                >
                   {pkg.name}
                 </h3>
-                <div style={{ color: isSelected ? '#cbd5e1' : 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '16px' }}>
+
+                <div style={{ color: isSelected ? '#D9A5A0' : 'var(--text-muted)', fontSize: '0.88rem', marginBottom: '20px' }}>
                   {pkg.type} • {pkg.itemsCount}
                 </div>
 
-                <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--gold-secondary)', fontFamily: 'var(--font-cinzel)', marginBottom: '20px' }}>
-                  ₹{pkg.pricePerPlate} <span style={{ fontSize: '0.9rem', color: isSelected ? '#cbd5e1' : 'var(--text-muted)', fontWeight: 400 }}>/ Plate</span>
-                </div>
-
-                <div style={{ borderTop: '1px dashed rgba(197, 155, 39, 0.3)', paddingTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {pkg.items.slice(0, 4).map((item, i) => (
-                    <div key={i} style={{ fontSize: '0.88rem', color: isSelected ? '#f8fafc' : '#334155', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <Check size={14} color="var(--gold-secondary)" />
+                <div style={{ borderTop: `1px dashed ${isSelected ? 'rgba(243, 233, 220, 0.2)' : 'var(--border-sand)'}`, paddingTop: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {pkg.items.map((item, i) => (
+                    <div key={i} style={{ fontSize: '0.88rem', color: isSelected ? '#F3E9DC' : '#475569', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <Check size={14} style={{ color: isSelected ? 'var(--saffron)' : 'var(--terracotta)' }} />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -90,62 +142,64 @@ export default function MenuBuilder({ lang }) {
           })}
         </div>
 
-        {/* Custom Dish Selector Box */}
-        <div className="glass-panel" style={{ padding: '36px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '28px', borderBottom: '1px solid rgba(197, 155, 39, 0.25)', paddingBottom: '16px' }}>
-            <div>
-              <h3 style={{ fontSize: '1.4rem', fontWeight: 700 }} className="font-cinzel text-gold-bright">
-                Customize Your Feast Selection
-              </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
-                Click items to build your dream wedding thali menu ({selectedDishes.length} items picked)
-              </p>
+        {/* Live Action Bar for Menu */}
+        <div
+          className="warm-paper-card"
+          style={{
+            padding: '32px',
+            background: '#FFFFFF',
+            border: '2px solid var(--border-sand)',
+            borderRadius: 'var(--radius-lg)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '20px'
+          }}
+        >
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <ChefHat size={20} style={{ color: 'var(--terracotta)' }} />
+              <h4 className="font-display" style={{ fontSize: '1.25rem', color: 'var(--deep-aubergine)' }}>
+                Want to Customize Your Menu?
+              </h4>
             </div>
-            <div className="glass-pill">
-              <Utensils size={14} /> 100% Pure Veg Gourmet
-            </div>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
+              Selected: <strong>{selectedPackage.name}</strong>. Jain, Rajasthani, and satvik pure veg food options are also available on request.
+            </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '14px' }}>
-            {selectedPackage.items.map((item, idx) => {
-              const isChecked = selectedDishes.includes(item);
-              return (
-                <div 
-                  key={idx}
-                  onClick={() => toggleDish(item)}
-                  style={{
-                    background: isChecked ? 'rgba(197, 155, 39, 0.12)' : '#ffffff',
-                    border: `1px solid ${isChecked ? 'var(--gold-primary)' : 'rgba(197, 155, 39, 0.25)'}`,
-                    padding: '12px 16px',
-                    borderRadius: 'var(--radius-sm)',
-                    cursor: 'pointer',
-                    fontSize: '0.88rem',
-                    fontWeight: isChecked ? 600 : 500,
-                    color: isChecked ? '#855906' : '#334155',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    transition: 'var(--transition)'
-                  }}
-                >
-                  <span>{item}</span>
-                  <div style={{
-                    width: '20px',
-                    height: '20px',
-                    borderRadius: '50%',
-                    background: isChecked ? 'var(--gold-primary)' : 'rgba(255,255,255,0.1)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
-                    {isChecked && <Check size={12} color="#050d0a" />}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <button
+              onClick={handleRequestMenu}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '12px 20px',
+                background: '#25D366',
+                color: '#FFFFFF',
+                borderRadius: 'var(--radius-pill)',
+                border: 'none',
+                fontWeight: 700,
+                fontSize: '0.85rem',
+                cursor: 'pointer',
+                boxShadow: '0 4px 14px rgba(37, 211, 102, 0.35)',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              <MessageCircle size={16} />
+              <span>Request Menu via WhatsApp</span>
+            </button>
 
+            <button
+              onClick={() => onOpenBooking && onOpenBooking({ eventType: `Catering: ${selectedPackage.name}` })}
+              className="btn-book"
+              style={{ padding: '12px 22px', fontSize: '0.85rem' }}
+            >
+              <span>Enquire for Dates</span>
+            </button>
+          </div>
         </div>
 
       </div>

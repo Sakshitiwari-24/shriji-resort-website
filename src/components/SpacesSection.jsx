@@ -7,6 +7,7 @@ export default function SpacesSection({ onOpenBooking }) {
   return (
     <section
       id="spaces"
+      className="responsive-section"
       style={{
         padding: '120px 24px',
         background: '#2B1620',
@@ -20,12 +21,12 @@ export default function SpacesSection({ onOpenBooking }) {
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '56px' }}>
           <span className="tag-label" style={{ color: '#E8A33D', marginBottom: '8px', display: 'block' }}>
-            Event Spaces
+            Our Spaces
           </span>
           <h2 className="h2-editorial font-display" style={{ color: '#F3E9DC' }}>
-            Handcrafted Celebrations in <br />
+            Spacious Areas for <br />
             <span className="font-display" style={{ fontStyle: 'italic', color: '#E8A33D' }}>
-              Every Corner
+              Every Function
             </span>
           </h2>
         </div>

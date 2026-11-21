@@ -7,11 +7,11 @@ import {
   MapPin, 
   Phone, 
   MessageCircle, 
-  Calendar, 
   Menu, 
   X, 
   PartyPopper,
-  ChevronRight 
+  ChevronRight,
+  Bed
 } from 'lucide-react';
 import { resortDetails } from '../data/resortData';
 
@@ -24,13 +24,13 @@ export default function Navbar({ onOpenBooking }) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      // Simple active link detection
-      const sections = ['intro', 'spaces', 'events', 'moments', 'journey', 'contact'];
+      // Active section detection
+      const sections = ['intro', 'spaces', 'rooms', 'events', 'moments', 'journey', 'booking', 'contact'];
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 200) {
+          if (rect.top <= 250 && rect.bottom >= 250) {
             setActiveSection(section);
             break;
           }
@@ -42,20 +42,21 @@ export default function Navbar({ onOpenBooking }) {
   }, []);
 
   const navLinks = [
-    { name: 'Story', href: '#intro', id: 'intro', icon: Compass, subtitle: 'Heritage & Vision' },
-    { name: 'Spaces', href: '#spaces', id: 'spaces', icon: Building2, subtitle: 'Royal Lawn & Banquet' },
-    { name: 'Events', href: '#events', id: 'events', icon: PartyPopper, subtitle: 'Weddings & Celebrations' },
-    { name: 'Moments', href: '#moments', id: 'moments', icon: Camera, subtitle: 'Celebration Gallery' },
-    { name: 'Journey', href: '#journey', id: 'journey', icon: Sparkles, subtitle: 'Wedding Timeline' },
-    { name: 'Contact', href: '#contact', id: 'contact', icon: MapPin, subtitle: 'Location & Directions' },
+    { name: 'Story', href: '#intro', id: 'intro', icon: Compass, subtitle: 'About Shriji Resort' },
+    { name: 'Spaces', href: '#spaces', id: 'spaces', icon: Building2, subtitle: 'Lawn, Hall & Pool' },
+    { name: 'Rooms', href: '#rooms', id: 'rooms', icon: Bed, subtitle: '25+ AC Guest Rooms' },
+    { name: 'Events', href: '#events', id: 'events', icon: PartyPopper, subtitle: 'Weddings & Parties' },
+    { name: 'Gallery', href: '#moments', id: 'moments', icon: Camera, subtitle: 'Resort Photos' },
+    { name: 'Contact', href: '#contact', id: 'contact', icon: MapPin, subtitle: 'Address & Map' },
   ];
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (e, href, id) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+    if (id) setActiveSection(id);
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'instant' });
     }
   };
 
@@ -124,7 +125,7 @@ export default function Navbar({ onOpenBooking }) {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span
-                className="font-display"
+                className="font-display nav-brand-title"
                 style={{
                   fontSize: scrolled ? '1.2rem' : '1.35rem',
                   fontStyle: 'italic',
@@ -138,7 +139,7 @@ export default function Navbar({ onOpenBooking }) {
                 Shriji Resort
               </span>
               <span
-                className="font-body"
+                className="font-body nav-brand-subtitle"
                 style={{
                   fontSize: '0.62rem',
                   letterSpacing: '0.18em',
@@ -173,7 +174,7 @@ export default function Navbar({ onOpenBooking }) {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  onClick={(e) => handleNavClick(e, link.href, link.id)}
                   className="nav-link-pill"
                   style={{
                     color: isActive ? '#E8A33D' : '#F3E9DC',
@@ -203,67 +204,38 @@ export default function Navbar({ onOpenBooking }) {
             })}
           </nav>
 
-          {/* Desktop & Mobile Action Bar on Right */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            {/* Quick Action: Book Date CTA Button (Desktop) */}
-            <button
-              onClick={() => onOpenBooking && onOpenBooking()}
-              className="nav-book-cta"
-              style={{
-                display: 'none',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'linear-gradient(135deg, #B5523B 0%, #963D27 100%)',
-                color: '#FFFFFF',
-                border: '1px solid rgba(247, 200, 115, 0.5)',
-                padding: '9px 18px',
-                borderRadius: 'var(--radius-pill)',
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                cursor: 'pointer',
-                boxShadow: '0 4px 14px rgba(181, 82, 59, 0.35)',
-                transition: 'all 0.25s ease'
-              }}
-            >
-              <Calendar size={15} style={{ color: '#F7C873' }} />
-              <span>Book Date</span>
-            </button>
-
-            {/* Mobile Menu Toggle with Animated Icon */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="mobile-toggle"
-              style={{
-                background: mobileMenuOpen ? 'rgba(232, 163, 61, 0.2)' : 'rgba(243, 233, 220, 0.08)',
-                border: '1px solid rgba(232, 163, 61, 0.35)',
-                color: '#F3E9DC',
-                padding: '8px 12px',
-                borderRadius: 'var(--radius-pill)',
-                fontSize: '0.8rem',
-                fontWeight: 600,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                transition: 'all 0.25s ease'
-              }}
-              aria-label="Toggle Menu"
-            >
-              {mobileMenuOpen ? (
-                <>
-                  <X size={18} style={{ color: '#E8A33D' }} />
-                  <span style={{ fontSize: '0.78rem' }}>Close</span>
-                </>
-              ) : (
-                <>
-                  <Menu size={18} style={{ color: '#E8A33D' }} />
-                  <span style={{ fontSize: '0.78rem' }}>Menu</span>
-                </>
-              )}
-            </button>
-          </div>
+          {/* Mobile Menu Toggle with Animated Icon */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="mobile-toggle"
+            style={{
+              background: mobileMenuOpen ? 'rgba(232, 163, 61, 0.2)' : 'rgba(243, 233, 220, 0.08)',
+              border: '1px solid rgba(232, 163, 61, 0.35)',
+              color: '#F3E9DC',
+              padding: '8px 12px',
+              borderRadius: 'var(--radius-pill)',
+              fontSize: '0.8rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'all 0.25s ease'
+            }}
+            aria-label="Toggle Menu"
+          >
+            {mobileMenuOpen ? (
+              <>
+                <X size={18} style={{ color: '#E8A33D' }} />
+                <span style={{ fontSize: '0.78rem' }}>Close</span>
+              </>
+            ) : (
+              <>
+                <Menu size={18} style={{ color: '#E8A33D' }} />
+                <span style={{ fontSize: '0.78rem' }}>Menu</span>
+              </>
+            )}
+          </button>
         </div>
       </header>
 
@@ -304,7 +276,7 @@ export default function Navbar({ onOpenBooking }) {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
+                onClick={(e) => handleNavClick(e, link.href, link.id)}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -408,24 +380,6 @@ export default function Navbar({ onOpenBooking }) {
             </a>
           </div>
 
-          {/* Primary Mobile Book Button */}
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              if (onOpenBooking) onOpenBooking();
-            }}
-            className="btn-book"
-            style={{
-              width: '100%',
-              justifyContent: 'center',
-              padding: '14px',
-              fontSize: '0.85rem'
-            }}
-          >
-            <Calendar size={17} style={{ color: '#F7C873' }} />
-            <span>Book Your Date</span>
-          </button>
-
           {/* Direct Phone Numbers */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <span style={{ fontSize: '0.68rem', color: '#D9A5A0', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 600 }}>
@@ -472,19 +426,12 @@ export default function Navbar({ onOpenBooking }) {
           border-color: #25D366 !important;
           box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3) !important;
         }
-        .nav-book-cta:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(181, 82, 59, 0.5) !important;
-          border-color: #F7C873 !important;
-        }
         @media (min-width: 960px) {
           .desktop-nav { display: flex !important; }
-          .nav-book-cta { display: inline-flex !important; }
           .mobile-toggle { display: none !important; }
         }
         @media (max-width: 959px) {
           .desktop-nav { display: none !important; }
-          .nav-book-cta { display: none !important; }
           .mobile-toggle { display: flex !important; }
         }
       `}</style>

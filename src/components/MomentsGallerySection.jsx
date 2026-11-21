@@ -44,7 +44,7 @@ export default function MomentsGallerySection() {
   return (
     <section
       id="moments"
-      className="paper-texture"
+      className="paper-texture responsive-section"
       style={{
         padding: '120px 24px',
         background: 'var(--warm-sand)',
@@ -56,18 +56,19 @@ export default function MomentsGallerySection() {
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <span className="tag-label" style={{ marginBottom: '8px', display: 'block' }}>
-            Visual Gallery
+            Photo Gallery
           </span>
           <h2 className="h2-editorial font-display" style={{ color: 'var(--deep-aubergine)' }}>
-            Captured Festive <br />
+            Photos of <br />
             <span className="font-display" style={{ fontStyle: 'italic', color: 'var(--terracotta)' }}>
-              Moments
+              Shriji Resort
             </span>
           </h2>
         </div>
 
         {/* Filter Tabs as Text Links */}
         <div
+          className="gallery-tabs-row"
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -93,7 +94,7 @@ export default function MomentsGallerySection() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
             gap: '28px'
           }}
         >
@@ -181,6 +182,8 @@ export default function MomentsGallerySection() {
           {/* Prev / Next Buttons */}
           <button
             onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            className="lightbox-nav-btn lightbox-prev"
+            aria-label="Previous photo"
             style={{
               position: 'absolute',
               left: '24px',
@@ -198,6 +201,8 @@ export default function MomentsGallerySection() {
 
           <button
             onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            className="lightbox-nav-btn lightbox-next"
+            aria-label="Next photo"
             style={{
               position: 'absolute',
               right: '24px',

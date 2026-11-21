@@ -1,0 +1,22 @@
+{
+  "name": "Shriji Resorts & Marriage Garden, Rewa",
+  "short_name": "Shriji Resort",
+  "description": "Wedding venue, 35,000 sq ft marriage garden, AC banquet hall, swimming pool & 25+ AC rooms on Allahabad Road, Rewa, MP.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2B1620",
+  "theme_color": "#2B1620",
+  "icons": [
+    {
+      "src": "/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
+
